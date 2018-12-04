@@ -1,4 +1,4 @@
-FROM node:10.14
+FROM node:8.11.3
 
 # @see https://github.com/GoogleChrome/puppeteer/blob/master/docs/troubleshooting.md
 RUN apt-get update -y
@@ -42,12 +42,4 @@ RUN apt-get install -y gconf-service \
       unzip \
       fontconfig \
       wget
-
-# Japanese font
-RUN mkdir -p /tmp \
-      && cd /tmp \
-      && wget https://noto-website.storage.googleapis.com/pkgs/NotoSansCJKjp-hinted.zip \
-      && mkdir -p /usr/share/fonts/NotoSansCJKjp \
-      && unzip NotoSansCJKjp-hinted.zip -d /usr/share/fonts/NotoSansCJKjp/ \
-      && rm NotoSansCJKjp-hinted.zip \
-      && fc-cache -fv \
+RUN rm -rf /var/lib/apt/lists/* /var/cache/apt/*
