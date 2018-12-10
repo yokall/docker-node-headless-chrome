@@ -43,3 +43,6 @@ RUN apt-get install -y gconf-service \
       fontconfig \
       wget
 RUN rm -rf /var/lib/apt/lists/* /var/cache/apt/*
+
+COPY set_umask.sh set_umask.sh
+ENTRYPOINT ["./set_umask.sh"]
