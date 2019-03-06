@@ -6,4 +6,4 @@ RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key
       apt-get install -y google-chrome-stable xvfb
 
 COPY set_umask.sh set_umask.sh
-ENTRYPOINT ["./set_umask.sh"]
+ENTRYPOINT ["/set_umask.sh"]
